@@ -6,6 +6,10 @@ const COORD = "49.02° N · 122.87° W";
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("in"));
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }),
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
@@ -44,9 +48,9 @@ function Hero({ headline }) {
       <div className="reveal in"><span className="eyebrow lede">Independent technology practice · Est. coastal BC</span></div>
       <h1 className="reveal in" data-d="1" dangerouslySetInnerHTML={{ __html: headline }} />
       <p className="sub reveal in" data-d="2">
-        Two decades turning hard technology into outcomes, from payment rails moving
-        tens of billions a month to AI-first strategy in the field. I build the systems,
-        and the teams, that hold up under load.
+        From payment rails moving tens of billions a month to AI-first strategy
+        shipped in the field: I build the systems, and the teams, that hold up
+        under load.
       </p>
       <div className="actions reveal in" data-d="3">
         <a className="cta cta--box" href="#contact">Start a conversation <span className="arr">→</span></a>
@@ -115,7 +119,7 @@ function Work() {
     <section className="work wrap" id="work">
       <div className="shead reveal">
         <h2>Selected <em>work.</em></h2>
-        <span className="coord idx">Placeholders · swap for real</span>
+        <span className="coord idx">Work / 02</span>
       </div>
       <div className="wlist">
         {items.map((it) => {
@@ -124,7 +128,7 @@ function Work() {
             <Row className="witem reveal" key={it.n} href={it.href}>
               <span className="num">{it.n}</span>
               <div className="body">
-                <div className="t">{it.t}</div>
+                <div className="t">{it.t}{it.href && <span className="rowarr"> →</span>}</div>
                 <div className="m">{it.m}</div>
               </div>
               <div className="tags">{it.tags}</div>
@@ -137,12 +141,36 @@ function Work() {
 }
 
 /* ── FROM THE LAB ────────────────────────────────────────────────────── */
+function InstallCmd() {
+  const [copied, setCopied] = useState(false);
+  const cmd = "npx skills@latest add stuarth/through-line";
+  const copy = () => {
+    const done = () => { setCopied(true); setTimeout(() => setCopied(false), 2000); };
+    const fallback = () => {
+      const ta = document.createElement("textarea");
+      ta.value = cmd; ta.style.position = "fixed"; ta.style.opacity = "0";
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) { /* leave label as Copy */ }
+      ta.remove();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(cmd).then(done).catch(fallback);
+    } else fallback();
+  };
+  return (
+    <button className="install" onClick={copy} title="Copy install command">
+      <span className="cmd">{cmd}</span>
+      <span className={"copystate" + (copied ? " done" : "")}>{copied ? "Copied" : "Copy"}</span>
+    </button>
+  );
+}
+
 function Lab() {
   return (
     <section className="lab wrap" id="lab">
       <div className="shead reveal">
         <h2>Agentic engineering based on <em>principles.</em></h2>
-        <span className="coord idx">From the lab</span>
+        <span className="coord idx">Lab / 03</span>
       </div>
       <div className="labgrid">
         <div className="labprose reveal" data-d="1">
@@ -163,7 +191,7 @@ function Lab() {
         <aside className="labcard reveal" data-d="2">
           <h3>through-line</h3>
           <p>A principles-driven skill for driving efforts larger than one agent session. Runs under Claude Code and Codex.</p>
-          <div className="install">npx skills@latest add stuarth/through-line</div>
+          <InstallCmd />
           <a className="cta cta--line" href="https://github.com/stuarth/through-line" target="_blank" rel="noreferrer">Read the method on GitHub <span className="arr">→</span></a>
         </aside>
       </div>
@@ -183,7 +211,7 @@ function Approach() {
     <section className="approach wrap" id="approach">
       <div className="shead reveal">
         <h2>How I think about <em>the work.</em></h2>
-        <span className="coord idx">Operating principles</span>
+        <span className="coord idx">Approach / 04</span>
       </div>
       <div className="principles">
         {ps.map((p, i) => (
