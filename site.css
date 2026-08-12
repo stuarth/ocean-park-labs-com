@@ -119,16 +119,12 @@ section { position: relative; }
 @media (max-width: 720px) { .nav .links a:not(.navcta) { display: none; } }
 
 /* ── HERO ────────────────────────────────────────────────────────────── */
-.hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 64px; }
-.hero .lede { margin-bottom: 30px; }
+.hero { min-height: 88vh; min-height: 88svh; display: flex; flex-direction: column; justify-content: center; padding-top: 120px; padding-bottom: 64px; }
+.hero .lede { display: block; margin-bottom: clamp(20px, 2.6vw, 34px); }
 .hero h1 { font-weight: 300; font-size: clamp(40px, 6.4vw, 88px); line-height: 1.04; letter-spacing: -0.022em; text-wrap: balance; max-width: 16ch; }
 .hero h1 em { font-style: italic; color: var(--acc-2); }
 .hero .sub { margin-top: 30px; font-size: clamp(18px, 2vw, 21px); line-height: 1.55; max-width: 56ch; color: var(--dim-2); font-weight: 300; }
 .hero .actions { margin-top: 44px; display: flex; gap: 28px; align-items: center; flex-wrap: wrap; }
-.hero .scrollcue { margin-top: 72px; display: flex; align-items: center; gap: 12px; color: var(--dim); font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; }
-.hero .scrollcue .ln { width: 46px; height: 1px; background: var(--line-2); position: relative; overflow: hidden; }
-.hero .scrollcue .ln::after { content:""; position:absolute; inset:0; width:40%; background: var(--acc); animation: sweep 2.6s ease-in-out infinite; }
-@keyframes sweep { 0% { transform: translateX(-100%);} 60%,100% { transform: translateX(280%);} }
 
 /* ── PROOF BAR ───────────────────────────────────────────────────────── */
 .proof { padding: 34px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }

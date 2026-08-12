@@ -56,7 +56,6 @@ function Hero({ headline }) {
         <a className="cta cta--box" href="#contact">Start a conversation <span className="arr">→</span></a>
         <a className="cta cta--line" href="#work">See selected work <span className="arr">→</span></a>
       </div>
-      <div className="scrollcue reveal in" data-d="4"><span className="ln"></span>Scroll</div>
     </section>
   );
 }
