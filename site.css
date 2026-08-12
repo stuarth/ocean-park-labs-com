@@ -172,6 +172,26 @@ section { position: relative; }
 .witem .tags { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); text-align: right; white-space: nowrap; }
 @media (max-width: 720px) { .witem { grid-template-columns: 40px 1fr; } .witem .tags { display: none; } }
 
+/* ── FROM THE LAB ────────────────────────────────────────────────────── */
+.lab { padding: clamp(90px, 12vh, 150px) 0; }
+.lab .shead h2 { max-width: 24ch; }
+.labgrid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(36px, 6vw, 84px); align-items: start; }
+.labprose p { font-size: 17.5px; line-height: 1.65; color: var(--dim-2); font-weight: 300; max-width: 58ch; }
+.labprose p + p { margin-top: 18px; }
+.labprose b { color: var(--snow); font-weight: 500; }
+.labcard { border: 1px solid var(--line-2); background: oklch(0.195 0.03 222); padding: 36px 34px 38px; }
+.labcard h3 { font-family: var(--mono); font-weight: 500; font-size: 20px; letter-spacing: 0.02em; }
+.labcard p { margin-top: 12px; font-size: 15.5px; line-height: 1.6; color: var(--dim-2); font-weight: 300; }
+.labcard .install {
+  margin-top: 24px; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+  color: var(--dim-2); border: 1px solid var(--line); background: oklch(0.165 0.028 224);
+  padding: 13px 16px; overflow-x: auto; white-space: nowrap;
+}
+.labcard .install::before { content: "$ "; color: var(--acc); }
+.labcard .cta { margin-top: 26px; }
+a.witem { text-decoration: none; color: inherit; }
+@media (max-width: 860px) { .labgrid { grid-template-columns: 1fr; } }
+
 /* ── APPROACH ────────────────────────────────────────────────────────── */
 .approach { padding: clamp(90px, 12vh, 150px) 0; }
 .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }

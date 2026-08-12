@@ -1,4 +1,4 @@
-/* global React, ReactDOM, useReveal, Nav, Hero, Proof, Practice, Work, Approach, About, Contact, Footer,
+/* global React, ReactDOM, useReveal, Nav, Hero, Proof, Practice, Work, Lab, Approach, About, Contact, Footer,
    useTweaks, TweaksPanel, TweakSection, TweakColor, TweakText, TweakRadio */
 const { useEffect } = React;
 
@@ -37,6 +37,7 @@ function App() {
         <div className="wrap"><hr className="divider" /></div>
         <Practice />
         <Work />
+        <Lab />
         <Approach />
         <About name={t.name} />
         <Contact name={t.name} email={t.email} />
