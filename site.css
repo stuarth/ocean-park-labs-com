@@ -145,7 +145,7 @@ section { position: relative; }
 .shead .idx { white-space: nowrap; }
 
 /* ── PRACTICE ────────────────────────────────────────────────────────── */
-.practice { padding: clamp(90px, 12vh, 150px) 0; }
+.practice { padding-block: clamp(90px, 12vh, 150px); }
 .modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1px solid var(--line); }
 .mode { padding: 40px 34px 44px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); transition: background .4s; position: relative; }
 .mode:nth-child(3n) { border-right: 0; }
@@ -157,7 +157,7 @@ section { position: relative; }
 @media (max-width: 860px) { .modes { grid-template-columns: 1fr; } .mode { border-right: 0; } }
 
 /* ── SELECTED WORK ───────────────────────────────────────────────────── */
-.work { padding: clamp(90px, 12vh, 150px) 0; }
+.work { padding-block: clamp(90px, 12vh, 150px); }
 .wlist { border-top: 1px solid var(--line-2); }
 .witem {
   display: grid; grid-template-columns: 54px 1fr auto; gap: 28px; align-items: baseline;
@@ -169,13 +169,15 @@ section { position: relative; }
 .witem .body .t { font-size: clamp(19px, 2vw, 24px); line-height: 1.3; letter-spacing: -0.01em; max-width: 30ch; transition: color .3s; }
 .witem:hover .body .t { color: var(--acc-2); }
 .witem .body .m { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; color: var(--dim); margin-top: 10px; }
-.witem .tags { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); text-align: right; white-space: nowrap; }
+.witem .tags { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); text-align: right; white-space: nowrap; }
+.witem .rowarr { color: var(--acc); }
 @media (max-width: 720px) { .witem { grid-template-columns: 40px 1fr; } .witem .tags { display: none; } }
 
 /* ── FROM THE LAB ────────────────────────────────────────────────────── */
-.lab { padding: clamp(90px, 12vh, 150px) 0; }
+.lab { padding-block: clamp(90px, 12vh, 150px); }
 .lab .shead h2 { max-width: 24ch; }
 .labgrid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(36px, 6vw, 84px); align-items: start; }
+.labgrid > * { min-width: 0; }
 .labprose p { font-size: 17.5px; line-height: 1.65; color: var(--dim-2); font-weight: 300; max-width: 58ch; }
 .labprose p + p { margin-top: 18px; }
 .labprose b { color: var(--snow); font-weight: 500; }
@@ -183,17 +185,25 @@ section { position: relative; }
 .labcard h3 { font-family: var(--mono); font-weight: 500; font-size: 20px; letter-spacing: 0.02em; }
 .labcard p { margin-top: 12px; font-size: 15.5px; line-height: 1.6; color: var(--dim-2); font-weight: 300; }
 .labcard .install {
-  margin-top: 24px; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+  margin-top: 24px; width: 100%; display: flex; align-items: center; gap: 14px;
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em; text-align: left;
   color: var(--dim-2); border: 1px solid var(--line); background: oklch(0.165 0.028 224);
-  padding: 13px 16px; overflow-x: auto; white-space: nowrap;
+  padding: 13px 16px; cursor: pointer; transition: border-color .3s;
 }
-.labcard .install::before { content: "$ "; color: var(--acc); }
+.labcard .install:hover { border-color: var(--acc); }
+.labcard .install .cmd { overflow-x: auto; white-space: nowrap; }
+.labcard .install .cmd::before { content: "$ "; color: var(--acc); }
+.labcard .install .copystate {
+  margin-left: auto; flex-shrink: 0; font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--dim);
+}
+.labcard .install .copystate.done { color: var(--acc); }
 .labcard .cta { margin-top: 26px; }
 a.witem { text-decoration: none; color: inherit; }
 @media (max-width: 860px) { .labgrid { grid-template-columns: 1fr; } }
 
 /* ── APPROACH ────────────────────────────────────────────────────────── */
-.approach { padding: clamp(90px, 12vh, 150px) 0; }
+.approach { padding-block: clamp(90px, 12vh, 150px); }
 .principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .principle { background: oklch(0.195 0.03 222); padding: 44px 40px; transition: background .4s; }
 .principle:hover { background: oklch(0.215 0.034 224); }
@@ -203,11 +213,11 @@ a.witem { text-decoration: none; color: inherit; }
 @media (max-width: 720px) { .principles { grid-template-columns: 1fr; } }
 
 /* ── ABOUT ───────────────────────────────────────────────────────────── */
-.about { padding: clamp(90px, 12vh, 150px) 0; }
+.about { padding-block: clamp(90px, 12vh, 150px); }
 .about .grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(36px, 6vw, 84px); align-items: start; }
 .about .portrait { position: relative; }
 .about image-slot { width: 100%; aspect-ratio: 4 / 5; display: block; border: 1px solid var(--line-2); }
-.about .pcap { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-top: 14px; display: flex; justify-content: space-between; }
+.about .pcap { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--dim); margin-top: 14px; display: flex; justify-content: space-between; }
 .about h2 { font-weight: 400; font-size: clamp(28px, 3.4vw, 40px); letter-spacing: -0.018em; line-height: 1.12; text-wrap: balance; }
 .about h2 em { font-style: italic; color: var(--acc-2); }
 .about .lede2 { font-size: clamp(18px, 2vw, 22px); line-height: 1.5; color: var(--snow); font-weight: 300; margin-top: 26px; }
@@ -218,7 +228,7 @@ a.witem { text-decoration: none; color: inherit; }
 @media (max-width: 820px) { .about .grid { grid-template-columns: 1fr; } .about .portrait { max-width: 360px; } }
 
 /* ── CONTACT ─────────────────────────────────────────────────────────── */
-.contact { padding: clamp(110px, 16vh, 200px) 0 clamp(80px, 10vh, 120px); text-align: center; }
+.contact { padding-block: clamp(110px, 16vh, 200px) clamp(80px, 10vh, 120px); text-align: center; }
 .contact .eyebrow { display: block; }
 .contact h2 { font-weight: 300; font-size: clamp(34px, 5vw, 64px); letter-spacing: -0.02em; line-height: 1.05; margin-top: 24px; text-wrap: balance; }
 .contact h2 em { font-style: italic; color: var(--acc-2); }
@@ -228,8 +238,8 @@ a.witem { text-decoration: none; color: inherit; }
 .contact .email:hover { color: var(--acc); border-color: var(--acc); }
 
 /* ── FOOTER ──────────────────────────────────────────────────────────── */
-.foot { border-top: 1px solid var(--line); padding: 34px 0 44px; }
+.foot { border-top: 1px solid var(--line); padding-block: 34px 44px; }
 .foot .row { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
-.foot .row span, .foot .row a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--dim); text-decoration: none; }
+.foot .row span, .foot .row a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--dim); text-decoration: none; }
 .foot .row a:hover { color: var(--snow); }
 .foot .coordbig { color: var(--dim-2); }
