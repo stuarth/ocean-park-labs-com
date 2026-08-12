@@ -1,0 +1,11 @@
+{
+  "name": "ocean-park-labs-com",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

@@ -4,6 +4,22 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ocean Park Labs · Stuart Hinson</title>
+  <meta name="description" content="Ocean Park Labs is the independent technology practice of Stuart Hinson: fractional CTO work, AI strategy, and systems engineering from Ocean Park, BC." />
+  <link rel="canonical" href="https://oceanparklabs.com/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ocean Park Labs" />
+  <meta property="og:title" content="Ocean Park Labs · Stuart Hinson" />
+  <meta property="og:description" content="Twenty years turning hard technology into outcomes: payments at scale, AI-first strategy, and the teams that ship them." />
+  <meta property="og:url" content="https://oceanparklabs.com/" />
+  <meta property="og:image" content="https://oceanparklabs.com/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -20,14 +36,23 @@
 <body>
   <div class="bgfield"><div class="fog"></div></div>
   <div id="root"></div>
+  <noscript>
+    <div style="position: relative; z-index: 1; max-width: 640px; margin: 0 auto; padding: 120px 28px;">
+      <h1 style="font-weight: 300; font-size: 40px;">Ocean Park Labs</h1>
+      <p style="margin-top: 20px; line-height: 1.6;">
+        The independent technology practice of Stuart Hinson: fractional CTO work,
+        AI strategy, and systems engineering from Ocean Park, BC.
+      </p>
+      <p style="margin-top: 20px;">
+        <a href="mailto:stuart@oceanparklabs.com" style="color: inherit;">stuart@oceanparklabs.com</a>
+      </p>
+    </div>
+  </noscript>
 
-  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
 
   <script src="image-slot.js"></script>
-  <script type="text/babel" src="tweaks-panel.jsx"></script>
-  <script type="text/babel" src="sections.jsx"></script>
-  <script type="text/babel" src="site-app.jsx"></script>
+  <script src="dist/site.js"></script>
 </body>
 </html>
