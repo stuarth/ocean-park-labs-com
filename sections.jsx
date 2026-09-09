@@ -112,7 +112,7 @@ function Work() {
     { n: "03", t: "Set and shipped an AI-first strategy across an agtech company", m: "From thesis to deployed systems, org-wide", tags: "Current · Strategy" },
     { n: "04", t: "Led technology through multiple startups to acquisition", m: "Founder-level ownership, 0→1 to exit", tags: "Founder-level · M&A" },
     { n: "05", t: "Built and grew engineering organizations that endure", m: "Teams that keep their quality bar after I leave", tags: "Leadership · Teams" },
-    { n: "06", t: "Authored through-line, an open method for orchestrating agentic coding", m: "Decisions as the unit of work; verdicts that outlive one agent session", tags: "Open source · Agentic AI", href: "#lab" },
+    { n: "06", t: "Authored through-line, a skill for carrying judgment across agent sessions", m: "Shared principles developed through work and applied to later decisions", tags: "Open source · Agentic AI", href: "#lab" },
   ];
   return (
     <section className="work wrap" id="work">
@@ -168,30 +168,34 @@ function Lab() {
   return (
     <section className="lab wrap" id="lab">
       <div className="shead reveal">
-        <h2>Agentic engineering based on <em>principles.</em></h2>
+        <h2>Work together without <em>starting over in judgment.</em></h2>
         <span className="coord idx">Lab / 03</span>
       </div>
       <div className="labgrid">
         <div className="labprose reveal" data-d="1">
           <p>
-            Push an AI coding effort past a single session and it fails in a
-            familiar way: the agent re-asks questions you already answered,
-            forgets verdicts, and quietly makes calls that were yours to make.
-            Code was never the bottleneck. The decisions around it are.
+            A coding agent is a worker on its first day, every day. Experienced
+            colleagues remember why a rule exists and which shortcuts were
+            temporary. A fresh agent session has to reconstruct that
+            understanding from the context available to it.
           </p>
           <p>
-            <b>through-line</b> is my answer, built in the open. It distills the
-            commitments that recur across an effort into principles you adopt
-            once, then holds every later decision to them. Verdicts propagate
-            through the map of open questions, you keep direction, and the agent
-            keeps the route.
+            Without the reasoning behind a decision, the agent has to infer
+            intent from the code. A workaround can become the pattern for a new
+            feature, and each later change carries that guess further.
+          </p>
+          <p>
+            I built <b>through-line</b> to carry those decisions and their
+            reasoning into later work. It helps you and the agent develop
+            principles as real choices come up. You decide which should guide
+            future work, and the agent applies them in related tasks.
           </p>
         </div>
         <aside className="labcard reveal" data-d="2">
           <h3>through-line</h3>
-          <p>A principles-driven skill for driving efforts larger than one agent session. Runs under Claude Code and Codex.</p>
+          <p>An open-source skill for developing shared judgment and applying it across sessions. Works with Claude Code and Codex.</p>
           <InstallCmd />
-          <a className="cta cta--line" href="https://github.com/stuarth/through-line" target="_blank" rel="noreferrer">Read the method on GitHub <span className="arr">→</span></a>
+          <a className="cta cta--line" href="https://github.com/stuarth/through-line" target="_blank" rel="noreferrer">View the skill on GitHub <span className="arr">→</span></a>
         </aside>
       </div>
     </section>
